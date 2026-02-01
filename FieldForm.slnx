@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FieldForm/FieldForm.csproj" />
+  <Project Path="TestFieldForm/TestFieldForm.csproj" />
+</Solution>
