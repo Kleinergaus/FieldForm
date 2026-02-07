@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="ExampleGridView/ExampleGridView.csproj" Id="ba6c047b-b60e-480c-8f06-8d3e17547a01" />
   <Project Path="FieldForm/FieldForm.csproj" />
   <Project Path="TestFieldForm/TestFieldForm.csproj" />
 </Solution>
