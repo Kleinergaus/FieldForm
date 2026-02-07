@@ -1,6 +1,6 @@
 ﻿namespace ExampleGridView
 {
-    partial class Form1
+    partial class Sokoban
     {
         /// <summary>
         ///  Required designer variable.
