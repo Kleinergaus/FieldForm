@@ -1,4 +1,5 @@
 ﻿using FieldForm.API;
+using System.Drawing;
 
 namespace FieldForm
 {
@@ -9,6 +10,8 @@ namespace FieldForm
         public int Width { get; private set; }
 
         private Field[,] Fields { get; set; }
+
+        private Dictionary<int, Bitmap> bitmaps = new Dictionary<int, Bitmap>();
 
         internal GridView(int width, int height)
         {
@@ -26,6 +29,14 @@ namespace FieldForm
 
         public IField? GetField(int x, int y)
         {
+            if (x < 0 || x >= Width)
+            {
+                return null;
+            }
+            if (y < 0 || y >= Height)
+            {
+                return null;
+            }
             return Fields[x, y];
         }
 
@@ -39,6 +50,30 @@ namespace FieldForm
                     field.Background = fields[x, y];      
                 }
             }            
+        }
+
+        public void AddBitmap(int index, Bitmap bitmap)
+        {
+            if (index <= 0 )
+            {
+                return;
+            }
+            if (bitmaps.ContainsKey(index))
+            {
+                bitmaps[index].Dispose();
+                bitmaps[index] = bitmap;                
+                return;
+            }
+            bitmaps.Add(index, bitmap);
+        }
+
+        public Bitmap? GetBitmap(int index)
+        {
+            if (bitmaps.ContainsKey(index))
+            {
+                return bitmaps[index];
+            }
+            return null;
         }
     }
 }

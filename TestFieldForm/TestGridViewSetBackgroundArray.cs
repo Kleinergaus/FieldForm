@@ -9,7 +9,9 @@ namespace TestFieldForm
         [Test]
         public void TestGridView_SetBackgroundWithArray_BackgroundTilesAreSet()
         {
+            // Arrange
             IGridView? result = GridFactory.CreateGridView(3, 3);
+            Assert.That(result, Is.Not.Null);
             int[,] tileArray = new int[3,3];
             tileArray[0,0] = 1;
             tileArray[0,1] = 2;
@@ -19,13 +21,13 @@ namespace TestFieldForm
             tileArray[1,2] = 6;
             tileArray[2,0] = 7;
             tileArray[2,1] = 8;
-            tileArray[2,2] = 9;
-
-            Assert.That(result, Is.Not.Null);
+            tileArray[2,2] = 9;            
             
+            // Act
             result.SetBackgroundWithArray(tileArray);
-            int expected = 1;
-            
+
+            // Assert
+            int expected = 1;            
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
