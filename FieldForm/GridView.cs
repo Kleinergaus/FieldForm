@@ -7,16 +7,16 @@ namespace FieldForm
 {
     public class GridView : IGridView
     {
-
-        private int marginPictureBoxX = 0;
         private int increasePictureBox = 64;
-        private int marginPictureBoxY = 0;                
-
+                  
         public int Height { get; private set; }
         public int Width { get; private set; }
 
         private Field[,] Fields { get; set; }
         private PictureBox[,] boxes;
+
+        public int MarginTop { get; private set; }
+        public int MarginLeft { get; private set; }
 
 
         private Dictionary<int, Bitmap> bitmaps = new Dictionary<int, Bitmap>();
@@ -132,7 +132,7 @@ namespace FieldForm
                     boxes[x, y] = new PictureBox();
                     PictureBox box = new PictureBox();
                     box.Parent = form;
-                    box.Location = new Point(marginPictureBoxX + x * increasePictureBox, marginPictureBoxY + y * increasePictureBox);
+                    box.Location = new Point(MarginLeft + x * increasePictureBox, MarginTop + y * increasePictureBox);
                     box.Size = new Size(increasePictureBox, increasePictureBox);
                     boxes[x, y] = box;
                     box.SizeMode = PictureBoxSizeMode.StretchImage;                    
@@ -185,5 +185,14 @@ namespace FieldForm
             }
             return true;
         }
+        public void SetMarginLeftTop(int left, int top)
+        {
+            if (left >= 0 && top >= 0)
+            {
+                MarginLeft = left;
+                MarginTop = top;
+            }                        
+        }
+
     }
 }

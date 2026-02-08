@@ -50,9 +50,9 @@ namespace ExampleGridView
             field.AddObject(5);
 
             field = gridView.GetField(3, 3);
-            field.AddObject(3);         
+            field.AddObject(3);
 
-
+            gridView.SetMarginLeftTop(50, 50);
             gridView.Init(this);
             gridView.Refresh();
             

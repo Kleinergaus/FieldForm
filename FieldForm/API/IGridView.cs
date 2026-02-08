@@ -7,6 +7,9 @@ namespace FieldForm.API
         public int Height { get; }
         public int Width { get; }
 
+        public int MarginTop { get; }
+        public int MarginLeft { get; }
+
         /// <summary>
         /// Returns a field (0,0 is upper left, 0,m upper right n,m lower right)
         /// x is first dimension, y second
@@ -56,6 +59,16 @@ namespace FieldForm.API
         /// </summary>
         /// <returns>True if no error occured</returns>
         public bool Refresh();
+
+        /// <summary>
+        /// Sets the margin (top, left) to the form. (0,0) is upper left corner of the form.
+        /// You have to do a init and a refresh that changes take effect.
+        /// It is recommended to do the changes before the first Init call.
+        /// </summary>
+        /// <param name="left">The distance to the left side of the form.</param>
+        /// <param name="top">The distance to the top side of the form.</param>
+        public void SetMarginLeftTop(int left, int top);
+
 
     }
 }
