@@ -8,7 +8,6 @@ namespace ExampleGridView
 
         private IGridView gridView;
 
-
         public Sokoban()
         {            
             InitializeComponent();
@@ -20,11 +19,11 @@ namespace ExampleGridView
             }
             gridView = createdView;
             int[,] initArray = new int[5,5];
-            for (int i = 1; i < 5; i++) { 
-                initArray[i,0] = i;
-                initArray[i,4] = i;
-                initArray[0, i] = i;
-                initArray[4, i] = i;
+            for (int i = 0; i < 5; i++) { 
+                initArray[i,0] = 2;
+                initArray[i,4] = 2;
+                initArray[0, i] = 2;
+                initArray[4, i] = 2;
             }
             for (int i = 1; i < 4; i++)
             {
@@ -32,9 +31,31 @@ namespace ExampleGridView
                 {
                     initArray[i, j] = 1;
                 }
-            }
+            }            
             gridView.SetBackgroundWithArray(initArray);
+            bool result = gridView.AddBitmapsFromFolder("graphics");
+            if (!result)
+            {
+                MessageBox.Show("Error Reading Bitmaps!");
+                Close();
+            }
 
+            IField? field = gridView.GetField(1, 3);
+            field.AddObject(4);
+
+            field = gridView.GetField(1, 2);
+            field.AddObject(5);
+
+            field = gridView.GetField(2, 3);
+            field.AddObject(5);
+
+            field = gridView.GetField(3, 3);
+            field.AddObject(3);         
+
+
+            gridView.Init(this);
+            gridView.Refresh();
+            
         }
     }
 }

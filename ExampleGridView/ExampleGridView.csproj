@@ -12,4 +12,26 @@
     <ProjectReference Include="..\FieldForm\FieldForm.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="graphics\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="graphics\01_Floor.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="graphics\02_Wall.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="graphics\03_Exit.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="graphics\04_Player.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="graphics\05_Rook.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
