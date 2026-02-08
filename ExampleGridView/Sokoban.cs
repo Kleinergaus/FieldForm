@@ -38,18 +38,44 @@ namespace ExampleGridView
             {
                 MessageBox.Show("Error Reading Bitmaps!");
                 Close();
+                return;
             }
 
             IField? field = gridView.GetField(1, 3);
+            if (field == null)
+            {
+                MessageBox.Show("Error getting Field!");
+                Close();
+                return;
+            }                   
             field.AddObject(4);
 
+
             field = gridView.GetField(1, 2);
+            if (field == null)
+            {
+                MessageBox.Show("Error getting Field!");
+                Close();
+                return;
+            }
             field.AddObject(5);
 
             field = gridView.GetField(2, 3);
+            if (field == null)
+            {
+                MessageBox.Show("Error getting Field!");
+                Close();
+                return;
+            }
             field.AddObject(5);
 
             field = gridView.GetField(3, 3);
+            if (field == null)
+            {
+                MessageBox.Show("Error getting Field!");
+                Close();
+                return;
+            }
             field.AddObject(3);
 
             gridView.SetMarginLeftTop(50, 50);
