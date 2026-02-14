@@ -1,5 +1,7 @@
 <Solution>
+  <Project Path="Contracts/Contracts.csproj" Id="757699ef-94ee-4297-a44f-82fedc3a7efc" />
   <Project Path="ExampleGridView/ExampleGridView.csproj" Id="ba6c047b-b60e-480c-8f06-8d3e17547a01" />
   <Project Path="FieldForm/FieldForm.csproj" />
+  <Project Path="Sokoban/Sokoban.csproj" Id="05b3822a-1fae-4ef4-a0cd-f4f7487aa0ee" />
   <Project Path="TestFieldForm/TestFieldForm.csproj" />
 </Solution>

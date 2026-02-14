@@ -9,7 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\FieldForm\FieldForm.csproj" />
+    <ProjectReference Include="..\Sokoban\Sokoban.csproj" />
   </ItemGroup>
 
   <ItemGroup>

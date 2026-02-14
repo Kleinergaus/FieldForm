@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using FieldForm.Contracts;
+using System.Drawing;
 
 namespace FieldForm.API
 {
@@ -68,6 +69,21 @@ namespace FieldForm.API
         /// <param name="left">The distance to the left side of the form.</param>
         /// <param name="top">The distance to the top side of the form.</param>
         public void SetMarginLeftTop(int left, int top);
+
+
+        /// <summary>
+        /// Registers objects that should be shown at the GridView
+        /// </summary>
+        /// <param name="objects">The list of objects to be shown.</param>
+        public void RegisterObjects(IList<IDisplayObject> objects);
+
+        /// <summary>
+        /// Returns the objects on a specified field.
+        /// </summary>
+        /// <param name="x">The x position on the field.</param>
+        /// <param name="y">The y position on the field.</param>
+        /// <returns>The list of objects on the specified field.</returns>
+        IList<IDisplayObject> GetObjectsOnFiled(int x, int y);
 
 
     }

@@ -1,4 +1,5 @@
 ﻿using FieldForm.API;
+using FieldForm.Contracts;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -14,6 +15,7 @@ namespace FieldForm
 
         private Field[,] Fields { get; set; }
         private PictureBox[,] boxes;
+        private List<IDisplayObject> objectsOnGrid = new List<IDisplayObject>();
 
         public int MarginTop { get; private set; }
         public int MarginLeft { get; private set; }
@@ -142,7 +144,26 @@ namespace FieldForm
             }
             return true;
         }
-        
+
+        public void RegisterObjects(IList<IDisplayObject> objects)
+        {
+            objectsOnGrid.AddRange(objects);
+        }
+
+        public IList<IDisplayObject> GetObjectsOnFiled(int x, int y)
+        {
+            IList<IDisplayObject> resultList = new List<IDisplayObject>();
+
+            foreach (IDisplayObject obj in objectsOnGrid)
+            {
+                if (obj.posX == x && obj.posY == y)
+                {
+                    resultList.Add(obj);
+                }
+            }
+            return resultList;
+        }
+
         public bool Refresh()
         {
             for (int i = 0; i < Width; i++)
@@ -158,7 +179,7 @@ namespace FieldForm
                     
                     box.Image = bitmap;
 
-                    var objectsOnFiled = Fields[i, ii].GetObjects();
+                    IList<IDisplayObject> objectsOnFiled = GetObjectsOnFiled(i, ii);
                     if (objectsOnFiled.Count>0)
                     {
 
@@ -168,7 +189,7 @@ namespace FieldForm
                         Bitmap bitmap2 = (Bitmap)bitmap.Clone();
                         g.DrawImage(bitmap2, 0, 0);
 
-                        int first = objectsOnFiled[0];
+                        int first = objectsOnFiled[0].Id;
 
                         Bitmap? map2 = GetBitmap(first);
                         if (map2 == null)
